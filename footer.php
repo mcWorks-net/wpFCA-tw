@@ -2,8 +2,10 @@
 <footer class="footer pt-10 pb-10 bg-clrGray">
         <div class="container">
             <div class="lg:flex justify-between border-b-2 border-b-gray-500">
-                <div class="footerLogo my-2">
-                    <img src="./img/fca-logo.png" class="w-[200px] mx-auto" alt="">
+                <div class="footerLogo my-2 mx-auto lg:mx-0">
+                    <figure class="w-[200px] mx-auto">
+                        <?php echo the_custom_logo(); ?>
+                    </figure>
                 </div>
                 <div class="quickLinks hidden lg:flex font-raleway">
                     <ul class="mx-5">

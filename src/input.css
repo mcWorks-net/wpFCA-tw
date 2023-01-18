@@ -99,6 +99,19 @@
   .whyUsContent.active {
     display: block !important;
   }
+
+  .answer {
+    @apply after:absolute after:h-[1px] after:w-[100%] after:bottom-2 after:content-[''] after:bg-gray-300 after:right-0 after:-z-10
+  }
+
+  .answer:last-child {
+    @apply after:w-[50%] after:left-0;
+  }
+
+  .answer:first-child {
+    @apply after:w-[50%] after:right-0;
+  }
+
   .theContent {
     display: none;
     @apply leading-9;
@@ -126,4 +139,12 @@
     transition: 0.3s ease-in;
     margin-top: 2rem;
     margin-bottom: 2rem;
+  }
+
+  .testimonialPhoto img{
+    @apply rounded-full
+  }
+
+  nav ul li.current-menu-item.current_page_item{
+    @apply lg:after:bg-accentYellow lg:after:h-2 lg:after:w-full lg:after:content-[''] lg:after:absolute lg:after:-top-6  lg:after:rounded-md;
   }

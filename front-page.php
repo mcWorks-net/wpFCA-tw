@@ -1,6 +1,14 @@
+<?php 
+
+/**
+ * Template Name: Home Page
+ */
+
+?>
+
 <?php get_header(); ?>
 
-<section class="banner text-white relative h-[900px] md:h-auto pt-[94.3px] lg:pt-0">
+    <section class="banner text-white relative h-[900px] md:h-auto pt-[94.3px] lg:pt-0">
         <div class="relative h-auto md:h-[744px]">
 
             <video class="h-[100%] brightness-50 md:block w-full md:h-[744px] absolute object-cover top-0" autoplay loop>
@@ -12,10 +20,10 @@
             <div class="text-center relative py-28">
                 <div class="container">
                     <h1 class="mx-auto font-serif mb-5 drop-shadow-2xl text-huge">
-                        Building Faith, Character and Academic Excellence
+                         <?php echo get_field('banner_title'); ?>
                     </h1>
                     <p class="mb-20 lg:max-w-4xl mx-auto drop-shadow-2xl">
-                        We genuinely care about the holistic development of our students, and continue to reach for our vision of impacting the nation through the development of Godly steward leaders.
+                         <?php echo get_field('banner_intro'); ?>
                     </p>
                     <a class="btn bg-accent hover:bg-accentYellow text-white w-[150px] mx-auto text-center" href="#">Inquire now!</a>
                 </div>
@@ -25,33 +33,44 @@
         <div class="addMission block mt-10 md:absolute h-32 md:-bottom-[30px] mx-auto md:left-0 md:right-0 z-10">
             <div class="container">
                 <div class="cards w-auto bg-transparent max-w-[1100px] lg:bg-white  rounded-2xl gap-2 lg:gap-0 lg:mx-auto grid grid-cols-2 text-center lg:grid-cols-4 lg:justify-center lg:items-center lg:shadow-2xl">
-                    <div class="bg-white rounded-2xl group lg:py-8 w-full lg:h-[206px] shadow-md lg:shadow-none hover:scale-110 hover:bg-accent ease-in hover:ease-in transition cursor-pointer">
-                        <div class="border-r-none w-full lg:border-r-2  my-auto lg:px-12 h-[134px] group-hover:border-0">
-                            <i class="fa-solid fa-cubes text-gray-500 text-4xl my-5 group-hover:text-white"></i>
-                            <h3 class="text-primary text-2xl group-hover:text-white"><small>Playschool</small></h3>
+
+                    <?php 
+                        $args = array(
+                        'post_type' => 'admission',
+                        'posts_per_page' => -1,
+                        );
+                        $newQuery = new WP_Query($args)
+                    ?>
+
+                    <?php if($newQuery->have_posts()) : while($newQuery->have_posts()) : $newQuery->the_post();?>
+
+                        <div class="bg-white rounded-2xl group lg:py-8 w-full lg:h-[206px] shadow-md lg:shadow-none hover:scale-110 hover:bg-accent ease-in hover:ease-in transition cursor-pointer">
+                            <div class="border-r-none w-full lg:border-r-2  my-auto lg:px-12 h-[134px] group-hover:border-0">
+
+                            <?php
+
+                                $theTitle = get_field('id');
+
+                                $site_Url = add_query_arg($theTitle,' ','admission');
+
+                            ?>
+                                <a href="<?php echo $site_Url ?>">
+
+                                <i class="<?php echo get_field('icon_class')?> text-gray-500 text-4xl my-5 group-hover:text-white"></i>
+                                <h3 class="text-primary text-2xl group-hover:text-white"><small><?php the_title() ?></small></h3>
+                                <p class="text-gray-500 group-hover:text-white"><small><?php echo get_field('subtitle_description')?></small></p>
+                                </a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="bg-white rounded-2xl group w-full lg:py-8 lg:h-[206px] shadow-md lg:shadow-none  hover:scale-110 hover:bg-accent ease-in hover:ease-in transition cursor-pointer">
-                        <div class="border-r-none lg:border-r-2  my-auto lg:px-12 h-[134px] group-hover:border-0">
-                            <i class="fa-solid fa-child text-gray-500 text-4xl my-5 group-hover:text-white"></i>
-                            <h3 class="text-primary text-2xl group-hover:text-white">Pre-school</h3>
-                            <p class="text-gray-500 group-hover:text-white"><small>Nursery | Pre-Kinder | Kinder</small></p>
-                        </div>
-                    </div>
-                    <div class="bg-white rounded-2xl group w-full lg:py-8 lg:h-[206px] shadow-md lg:shadow-none hover:scale-110 hover:bg-accent ease-in hover:ease-in transition cursor-pointer">
-                        <div class="border-r-none w-full lg:border-r-2  my-auto lg:px-12 h-[134px] group-hover:border-0">
-                            <i class="fa-solid fa-book-open text-gray-500 text-4xl my-5 group-hover:text-white"></i>
-                            <h3 class="text-primary text-2xl group-hover:text-white">Elementary</h3>
-                            <p class="text-gray-500 group-hover:text-white"><small>Primary | Intermediate</small></p>
-                        </div>
-                    </div>
-                    <div class="bg-white rounded-2xl group w-full lg:py-8 lg:h-[206px] shadow-md lg:shadow-none hover:scale-110 hover:bg-accent ease-in hover:ease-in transition cursor-pointer">
-                        <div class="my-auto w-full lg:px-12 h-[134px] group-hover:border-0">
-                            <i class="fa-solid fa-user-tie text-gray-500 text-4xl my-5 group-hover:text-white"></i>
-                            <h3 class="text-primary text-2xl group-hover:text-white">Junior High</h3>
-                            <p class="text-gray-500 group-hover:text-white"><small>Highschool Education</small></p>
-                        </div>
-                    </div>
+                        
+                    <?php
+                        endwhile;
+                        else :
+                            echo "no available content yet";
+                        endif;
+                        wp_reset_postdata();
+                    ?>
+
                 </div>
             </div>
         </div>
@@ -63,61 +82,37 @@
         <div class="container">
             <h2 class="text-3xl text-primary mb-10">Why Chooes Us?</h2>
             <div class="hidden lg:flex justify-center py-20">
-                <div id="answer-1" class="answer active group relative text-center cursor-pointer  w-[250px] after:absolute after:h-[1px] after:w-[50%] after:bottom-2 after:content-[''] after:bg-gray-300 after:right-0 after:-z-10">
-                    <h2 class="text-2xl text-primary">Holistic</h2>
-                    <p class="text-gray-500">Education</p>
+
+            <?php if( get_field('why_choose_us') ): ?>
+                <?php while( the_repeater_field('why_choose_us') ): ?>
+                
+                <div id="answer-<?php the_sub_field('id');?>" class="answer group relative text-center cursor-pointer  w-[250px]">
+                    <h2 class="text-2xl text-primary"><?php the_sub_field('title');?></h2>
+                    <p class="text-gray-500"><?php the_sub_field('subtitle');?></p>
                     <span class="circle h-[20px] w-[20px] block bg-gray-500 mx-auto rounded-xl border-2  shadow-2xl group-hover:bg-accentYellow"></span>
                 </div>
-                <div id="answer-2" class="answer group relative text-center cursor-pointer  w-[250px] after:absolute after:h-[1px] after:w-full after:bottom-2 after:content-[''] after:bg-gray-300 after:left-0 after:-z-10">
-                    <h2 class="text-2xl text-primary">Transform</h2>
-                    <p class="text-gray-500">Individuals</p>
-                    <span  class="circle h-[20px] w-[20px] block bg-gray-500 mx-auto rounded-xl border-2  shadow-2xl z-10 group-hover:bg-accentYellow"></span>
-                </div>
-                <div id="answer-3"  class="answer group relative text-center cursor-pointer  w-[250px] after:absolute after:h-[1px] after:w-[50%] after:bottom-2 after:content-[''] after:bg-gray-300 after:left-0 after:-z-10">
-                    <h2 class="text-2xl text-primary">Give</h2>
-                    <p class="text-gray-500">Hope</p>
-                    <span class="circle h-[20px] w-[20px] block bg-gray-500 mx-auto rounded-xl border-2  shadow-2xl group-hover:bg-accentYellow"></span>
-                </div>
+
+                <?php endwhile; ?>
+            <?php endif; ?>
+                
             </div>
-            <div id="answer-1-content" class="whyUsContent active">
-                <div class="xl:grid xl:grid-cols-2 lg:grid-cols-1">
-                    <iframe  class="mx-auto mb-10 w-full lg:w-[560px]"  height="315" src="https://www.youtube.com/embed/WvNaasp74cE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                    <div class="whyUsContentDesc text-justify xl:mr-20">
-                        <p>
-                            Lorem1, ipsum dolor sit amet consectetur adipisicing elit. Natus, est explicabo? Officia saepe sunt repellendus nulla perspiciatis! Obcaecati amet alias, culpa aspernatur saepe fuga. Debitis ea laboriosam architecto quidem quas officia itaque hic voluptatem, deleniti expedita, perferendis aliquam, animi facere. Sunt non velit dolor mollitia molestiae excepturi optio eveniet est!
-                        </p>
-                        <p>
-                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sapiente ullam, provident quis odio ipsa rem aspernatur minus? Placeat incidunt non quibusdam voluptatem veniam voluptates illo nihil earum et facilis itaque repellendus nemo, consectetur assumenda mollitia libero labore exercitationem corrupti ab rerum architecto laudantium unde? Aperiam eos iusto sunt dolor itaque.
-                        </p>
+
+            <?php if( get_field('why_choose_us') ): ?>
+                  <?php while( the_repeater_field('why_choose_us') ): ?>
+
+                <div id="answer-<?php the_sub_field('id')?>-content" class="whyUsContent">
+                    <div class="xl:grid xl:grid-cols-2 lg:grid-cols-1">
+                        <iframe  class="mx-auto mb-10 lg:my-auto w-full lg:w-[560px]"  height="315" src="<?php the_sub_field('video')?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        <div class="whyUsContentDesc text-justify xl:mr-20">
+                            <?php the_sub_field('text_content')?>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div id="answer-2-content" class="whyUsContent">
-                <div class="xl:grid xl:grid-cols-2 lg:grid-cols-1">
-                    <iframe  class="mx-auto mb-10 w-full lg:w-[560px]"  height="315" src="https://www.youtube.com/embed/WvNaasp74cE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                    <div class="whyUsContentDesc text-justify xl:mr-20">
-                        <p>
-                            Lorem2, ipsum dolor sit amet consectetur adipisicing elit. Natus, est explicabo? Officia saepe sunt repellendus nulla perspiciatis! Obcaecati amet alias, culpa aspernatur saepe fuga. Debitis ea laboriosam architecto quidem quas officia itaque hic voluptatem, deleniti expedita, perferendis aliquam, animi facere. Sunt non velit dolor mollitia molestiae excepturi optio eveniet est!
-                        </p>
-                        <p>
-                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sapiente ullam, provident quis odio ipsa rem aspernatur minus? Placeat incidunt non quibusdam voluptatem veniam voluptates illo nihil earum et facilis itaque repellendus nemo, consectetur assumenda mollitia libero labore exercitationem corrupti ab rerum architecto laudantium unde? Aperiam eos iusto sunt dolor itaque.
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div id="answer-3-content" class="whyUsContent">
-                <div class="xl:grid xl:grid-cols-2 lg:grid-cols-1">
-                    <iframe  class="mx-auto mb-10 w-full lg:w-[560px]"  height="315" src="https://www.youtube.com/embed/WvNaasp74cE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                    <div class="whyUsContentDesc text-justify xl:mr-20">
-                        <p>
-                            Lorem3, ipsum dolor sit amet consectetur adipisicing elit. Natus, est explicabo? Officia saepe sunt repellendus nulla perspiciatis! Obcaecati amet alias, culpa aspernatur saepe fuga. Debitis ea laboriosam architecto quidem quas officia itaque hic voluptatem, deleniti expedita, perferendis aliquam, animi facere. Sunt non velit dolor mollitia molestiae excepturi optio eveniet est!
-                        </p>
-                        <p>
-                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sapiente ullam, provident quis odio ipsa rem aspernatur minus? Placeat incidunt non quibusdam voluptatem veniam voluptates illo nihil earum et facilis itaque repellendus nemo, consectetur assumenda mollitia libero labore exercitationem corrupti ab rerum architecto laudantium unde? Aperiam eos iusto sunt dolor itaque.
-                        </p>
-                    </div>
-                </div>
-            </div>
+
+                <?php endwhile; ?>
+            <?php endif; ?>
+            
+
         </div>
     </section>
 
@@ -126,121 +121,134 @@
 
             <div class="my-slider">
 
-                <div class="testimonialItem">
-                    <div class="lg:grid lg:grid-cols-[_2fr,_1fr] items-center">
-                        <div class="testimonialContent w-full relative mt-16">
-                            <img src="./img/qoute.svg" class="absolute -top-16 left-0" alt="">
-                            <p class="mb-10 lg:mr-20 text-justify">
-                                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Distinctio doloremque corporis perferendis facilis ad incidunt asperiores quae quis praesentium possimus et placeat repellendus veritatis, quaerat laboriosam, sequi sint cum quam!
-                            </p>
-                            <ul class="flex items-center">
-                                <li>
-                                    <img class="w-[100px] h-[100px] mr-5" src="./img/testimony2.png" alt="">
-                                </li>
-                                <li>
-                                    <div class="authorPhoto"></div>
-                                    <div class="testimonialAuthor text-left">
-                                        <p><b>Joanna Mae Briones-Alcantara</b></p>
-                                        <p>
-                                            Mother of Aebriel
-                                        </p>
-                                    </div>
-                                </li>
-                            </ul>
-                            <img class="absolute bottom-0 right-0 lg:right-24" src="./img/qoute2.svg" alt="">
-                        </div>
-                    <div class="hidden lg:grid lg:grid-cols-2">
-                            <a class="mx-auto" href="#">
-                                <img class="w-[240px] h-[240px] object-cover" src="./img/fca-Studaent-receiving-certificate.webp" alt="">
-                            </a>
-                            <a class="mx-auto href="#">
-                                <img class="w-[240px] h-[240px] lg:mt-28 object-cover" src="./img/fca-Studaent-receiving-certificate-2.webp" alt="">
-                            </a>
-                            <a class="mx-auto href="#">
-                                <img class="w-[240px] h-[240px] lg:-mt-24 object-cover" src="./img/fca-Studaent-receiving-certificate-3.webp" alt="">
-                            </a>
-                    </div>
-                    </div>
-                </div>
+                <?php 
+                    $args = array(
+                    'post_type' => 'testimonial',
+                    'posts_per_page' => -1,
+                    );
+                    $newQuery = new WP_Query($args)
+                ?>
 
-                <div class="testimonialItem">
-                    <div class="lg:grid lg:grid-cols-[_2fr,_1fr] items-center">
-                        <div class="testimonialContent w-full relative mt-16">
-                            <img src="./img/qoute.svg" class="absolute -top-16 left-0" alt="">
-                            <p class="mb-10 lg:mr-20 text-justify">
-                                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Distinctio doloremque corporis perferendis facilis ad incidunt asperiores quae quis praesentium possimus et placeat repellendus veritatis, quaerat laboriosam, sequi sint cum quam!
-                            </p>
-                            <ul class="flex items-center">
-                                <li>
-                                    <img class="w-[100px] h-[100px] mr-5" src="./img/testimony2.png" alt="">
-                                </li>
-                                <li>
-                                    <div class="authorPhoto"></div>
-                                    <div class="testimonialAuthor text-left">
-                                        <p><b>Joanna Mae Briones-Alcantara</b></p>
-                                        <p>
-                                            Mother of Aebriel
-                                        </p>
-                                    </div>
-                                </li>
-                            </ul>
-                            <img class="absolute bottom-0 right-0 lg:right-24" src="./img/qoute2.svg" alt="">
+                <?php if($newQuery->have_posts()) : while($newQuery->have_posts()) : $newQuery->the_post();?>
+            
+                    <div class="testimonialItem">
+                        <div class="lg:grid lg:grid-cols-[_2fr,_1fr] items-center">
+                            <div class="testimonialContent w-full relative mt-16">
+                                <img src="<?php echo get_template_directory_uri() ?>./img/qoute.svg" class="absolute -top-16 left-0" alt="">
+                                <p class="mb-10 lg:mr-20 text-justify">
+                                    <?php the_content();?>                                
+                                </p>
+                                <ul class="flex items-center">
+                                    <li>
+                                        <figure class="w-[100px] h-[100px] mr-5 testimonialPhoto">
+                                             <?php echo get_the_post_thumbnail()?>
+                                        </figure>
+                                    </li>
+                                    <li>
+                                        <div class="authorPhoto"></div>
+                                        <div class="testimonialAuthor text-left">
+                                            <p><b><?php the_title(); ?></b></p>
+                                            <p>
+                                                <?php echo get_field('occupation'); ?>
+                                            </p>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <img class="absolute bottom-0 right-0 lg:right-24" src="<?php echo get_template_directory_uri() ?>./img/qoute2.svg" alt="">
+                            </div>
+                            <div class="hidden lg:grid lg:grid-cols-2 [&>:nth-child(2)]:mt-32 [&>:nth-child(2)]:pr-2 [&>:last-child]:-mt-32 ">
+                                <?php 
+                                    $images = get_field('gallery');
+                                    if($images):
+                                ?>
+
+                                <?php foreach($images as $image):?>
+                                    <a class="mx-auto" data-lightbox="<?php echo the_title() ?>" href="<?php echo esc_url($image['sizes']['large']); ?>">
+                                        <img class="w-[240px] h-[240px] object-cover m-1"
+                                            src="<?php echo esc_url($image['sizes']['large']); ?>" 
+                                            height="<?php echo substr(esc_url($image['height']),7);?>px"
+                                            width="<?php echo substr(esc_url($image['width']),7); ?>px"
+                                        alt="">
+                                    </a>
+                                    <?php endforeach; ?>          
+                                <?php endif; ?>
+
+                            </div>
                         </div>
-                    <div class="hidden lg:grid lg:grid-cols-2">
-                            <a class="mx-auto" href="#">
-                                <img class="w-[240px] h-[240px] object-cover" src="./img/fca-Studaent-receiving-certificate.webp" alt="">
-                            </a>
-                            <a class="mx-auto href="#">
-                                <img class="w-[240px] h-[240px] lg:mt-28 object-cover" src="./img/fca-Studaent-receiving-certificate-2.webp" alt="">
-                            </a>
-                            <a class="mx-auto href="#">
-                                <img class="w-[240px] h-[240px] lg:-mt-24 object-cover" src="./img/fca-Studaent-receiving-certificate-3.webp" alt="">
-                            </a>
                     </div>
-                    </div>
-                </div>
+
+                <?php
+                    endwhile;
+                    else :
+                        echo "no available content yet";
+                    endif;
+                    wp_reset_postdata();
+                ?>
 
 
-                <div class="testimonialItem">
-                    <div class="lg:grid lg:grid-cols-[_2fr,_1fr] items-center">
-                        <div class="testimonialContent w-full relative mt-16">
-                            <img src="./img/qoute.svg" class="absolute -top-16 left-0" alt="">
-                            <p class="mb-10 lg:mr-20 text-justify">
-                                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Distinctio doloremque corporis perferendis facilis ad incidunt asperiores quae quis praesentium possimus et placeat repellendus veritatis, quaerat laboriosam, sequi sint cum quam!
-                            </p>
-                            <ul class="flex items-center">
-                                <li>
-                                    <img class="w-[100px] h-[100px] mr-5" src="./img/testimony2.png" alt="">
-                                </li>
-                                <li>
-                                    <div class="authorPhoto"></div>
-                                    <div class="testimonialAuthor text-left">
-                                        <p><b>Joanna Mae Briones-Alcantara</b></p>
-                                        <p>
-                                            Mother of Aebriel
-                                        </p>
-                                    </div>
-                                </li>
-                            </ul>
-                            <img class="absolute bottom-0 right-0 lg:right-24" src="./img/qoute2.svg" alt="">
-                        </div>
-                    <div class="hidden lg:grid lg:grid-cols-2">
-                            <a class="mx-auto" href="#">
-                                <img class="w-[240px] h-[240px] object-cover" src="./img/fca-Studaent-receiving-certificate.webp" alt="">
-                            </a>
-                            <a class="mx-auto href="#">
-                                <img class="w-[240px] h-[240px] lg:mt-28 object-cover" src="./img/fca-Studaent-receiving-certificate-2.webp" alt="">
-                            </a>
-                            <a class="mx-auto href="#">
-                                <img class="w-[240px] h-[240px] lg:-mt-24 object-cover" src="./img/fca-Studaent-receiving-certificate-3.webp" alt="">
-                            </a>
-                    </div>
-                    </div>
-                </div>
             </div>
 
         </div>
     </section>
 
+    
+    <?php the_content(); ?>
+
+    <section style="background-image: url('<?php echo get_template_directory_uri()?>./img/scholarship.png')" class="scholarship bg-orange-900 py-40 bg-cover bg-center bg-fixed z-1">
+        <div class="container">
+            <h2 class="text-3xl text-primary my-8">Apply for Scholarship</h2>
+            <p class="my-8 max-w-md">
+                The scholarship program would provide funding for the schooling costs of qualified students
+            </p>
+            <a class="btn bg-accentYellow text-white w-[140px] text-center" href="scholarship.html">Apply Now</a>
+        </div>
+    </section>
+
+    
+    <section class="map">
+        <iframe class="w-full h-[500px]" id="gmap_canvas" src="https://maps.google.com/maps?q=frontline%20christian%20academy&amp;t=&amp;z=13&amp;ie=UTF8&amp;iwloc=&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+    </section>      
+    
+    <section class="partners py-20">
+        <div class="container">
+            <div class="md:flex items-center block">
+
+                <?php 
+                    $images = get_field('partners_gallery');
+                    if($images):
+                ?>
+
+                <?php foreach($images as $image):?>
+                    <a class="mx-auto" href="<?php echo esc_url($image['sizes']['large']); ?>">
+                        <img class="w-[200px] object-cover m-1 mx-auto py-5"
+                            src="<?php echo esc_url($image['sizes']['large']); ?>" 
+                            height="<?php echo substr(esc_url($image['height']),7);?>px"
+                            width="<?php echo substr(esc_url($image['width']),7); ?>px"
+                        alt="">
+                    </a>
+                    <?php endforeach; ?>          
+                <?php endif; ?>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox-plus-jquery.min.js"></script>
+    <script>
+        lightbox.option({
+      'resizeDuration': 200,
+      'wrapAround': true,
+      'disableScrolling': true,
+      'fitImagesInViewport': true,
+      'positionFromTop': 100,
+        })
+    </script>
+
+    <script>
+        const whyChooseUsActive= document.querySelector('#answer-1');
+        whyChooseUsActive.classList.add('active');
+
+        const whyChooseUsActiveContent= document.querySelector('#answer-1-content');
+        whyChooseUsActiveContent.classList.add('active');
+    </script>
 
 <?php get_footer(); ?>

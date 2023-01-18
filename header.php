@@ -7,8 +7,9 @@
     <title>Frontline Christian Academy</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;900&family=Raleway:ital,wght@0,100;0,400;1,100;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
-    <link rel="stylesheet" id="fca-fa-2-css" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css?ver=6.1.1" type="text/css" media="all">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/tiny-slider.css">
+    <link rel="stylesheet" id="fca-fa-2-css" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css?ver=6.1.1" type="text/css" media="all">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
     <?php wp_head() ?>
 </head>
 <body>
@@ -43,13 +44,7 @@
 
            <nav class="absolute top-[90px] z-10 bg-white h-screen lg:h-auto -right-[100%] lg:right-0 w-full lg:block lg:static ease-in-out duration-500 transition-all" >
             <ul class="lg:flex lg:justify-between ">
-                <li class="active"><a href="index.html">HOME</a></li>
-                <li class=""><a href="about.html">ABOUT</a></li>
-                <li><a href="admission.html">ADMISSION</a></li>
-                <li><a href="services.html">SERVICES</a></li>
-                <li><a href="gallery.html">GALLERY</a></li>
-                <li><a href="contact.html">CONTACT</a></li>
-                <li><a href="">GIVE</a></li>
+                <?php wp_menu_li() ?>
             </ul>
             <div class="headerContact lg:hidden ">
                 <ul class="font-raleway block items-center text-center">
