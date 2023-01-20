@@ -24,7 +24,7 @@
                             $id = get_field('id');
                         ?>
 
-                        <li><a href="<?php echo 'https://demo.frontlinebusiness.com.ph/dev/fca2023/admission/?'.$id.'=' ?>"><?php the_title(); ?></a></li>
+                        <li><a href="<?php echo 'http://localhost/wpfca-tw/admission/?'.$id.'=' ?>"><?php the_title(); ?></a></li>
                     
                         <?php
                             endwhile;
@@ -109,5 +109,24 @@
           controlsText: ['',''],
         });
       </script>
-</body>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox-plus-jquery.min.js"></script>
+        <script>
+            lightbox.option({
+        'resizeDuration': 200,
+        'wrapAround': true,
+        'disableScrolling': true,
+        'fitImagesInViewport': true,
+        'positionFromTop': 100,
+            })
+        </script>
+
+        <script>
+            const whyChooseUsActive= document.querySelector('#answer-1');
+            whyChooseUsActive.classList.add('active');
+
+            const whyChooseUsActiveContent= document.querySelector('#answer-1-content');
+            whyChooseUsActiveContent.classList.add('active');
+        </script>
+    </body>
 </html>

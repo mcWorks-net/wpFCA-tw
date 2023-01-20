@@ -29,3 +29,8 @@ function removeActive() {
      content.classList.remove("active");
  });
  }
+
+ const contentMenuActive = document.querySelector("#menu-1");
+ contentMenuActive.classList.add("active");
+ const contentActive = document.querySelector("#menu-1-content");
+ contentActive.classList.add("active");
