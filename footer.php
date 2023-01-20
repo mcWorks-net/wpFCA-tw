@@ -10,10 +10,29 @@
                 <div class="quickLinks hidden lg:flex font-raleway">
                     <ul class="mx-5">
                         <li class="font-bold">Admission</li>
-                        <li class="my-2"><a class="text-gray-600" href="#">Playschool</a></li>
-                        <li class="my-2"><a class="text-gray-600" href="#">Pre-school</a></li>
-                        <li class="my-2"><a class="text-gray-600" href="#">Elementary</a></li>
-                        <li class="my-2"><a class="text-gray-600" href="#">Junior High</a></li>
+                        <?php 
+                            $args = array(
+                            'post_type' => 'admission',
+                            'posts_per_page' => -1,
+                            );
+                            $newQuery = new WP_Query($args)
+                        ?>
+
+                        <?php if($newQuery->have_posts()) : while($newQuery->have_posts()) : $newQuery->the_post();?>
+                  
+                        <?php
+                            $id = get_field('id');
+                        ?>
+
+                        <li><a href="<?php echo 'https://demo.frontlinebusiness.com.ph/dev/fca2023/admission/?'.$id.'=' ?>"><?php the_title(); ?></a></li>
+                    
+                        <?php
+                            endwhile;
+                            else :
+                                echo "no available content yet";
+                            endif;
+                            wp_reset_postdata();
+                        ?>
                     </ul>
                     <ul class="mx-5">
                         <li class="font-bold">Other Offers</li>
@@ -25,12 +44,7 @@
                     </ul>
                     <ul class="mx-5">
                         <li class="font-bold">Quicklinks</li>
-                        <li class="my-2"><a class="text-gray-600" href="#">Home</a></li>
-                        <li class="my-2"><a class="text-gray-600" href="#">About</a></li>
-                        <li class="my-2"><a class="text-gray-600" href="#">Admission</a></li>
-                        <li class="my-2"><a class="text-gray-600" href="#">Services</a></li>
-                        <li class="my-2"><a class="text-gray-600" href="#">Gallery</a></li>
-                        <li class="my-2"><a class="text-gray-600" href="#">Contact</a></li>
+                        <?php wp_footer_li(); ?>
                     </ul>
                 </div>
                 <div class="footerBtn text-center mb-10 lg:mb-0">

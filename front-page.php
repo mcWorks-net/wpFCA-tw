@@ -25,7 +25,7 @@
                     <p class="mb-20 lg:max-w-4xl mx-auto drop-shadow-2xl">
                          <?php echo get_field('banner_intro'); ?>
                     </p>
-                    <a class="btn bg-accent hover:bg-accentYellow text-white w-[150px] mx-auto text-center" href="#">Inquire now!</a>
+                    <a class="btn bg-accent hover:bg-accentYellow text-white w-[150px] mx-auto text-center" href="<?php echo site_url('contact') ?>">Inquire now!</a>
                 </div>
                 
             </div>

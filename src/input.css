@@ -104,6 +104,10 @@
     @apply after:absolute after:h-[1px] after:w-[100%] after:bottom-2 after:content-[''] after:bg-gray-300 after:right-0 after:-z-10
   }
 
+  .contentMenu li.active {
+    @apply underline text-primary
+  }
+
   .answer:last-child {
     @apply after:w-[50%] after:left-0;
   }

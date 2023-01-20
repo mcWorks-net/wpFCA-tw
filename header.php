@@ -43,7 +43,7 @@
             </div>
 
            <nav class="absolute top-[90px] z-10 bg-white h-screen lg:h-auto -right-[100%] lg:right-0 w-full lg:block lg:static ease-in-out duration-500 transition-all" >
-            <ul class="lg:flex lg:justify-between ">
+            <ul class="lg:flex lg:justify-between uppercase ">
                 <?php wp_menu_li() ?>
             </ul>
             <div class="headerContact lg:hidden ">
