@@ -289,7 +289,7 @@
             <p class="my-8 max-w-md">
                 The scholarship program would provide funding for the schooling costs of qualified students
             </p>
-            <a class="btn bg-accentYellow text-white w-[140px] text-center" href="scholarship.html">Apply Now</a>
+            <a class="btn bg-accentYellow text-white w-[140px] text-center" href="<?php echo site_url('scholarship') ?>">Apply Now</a>
         </div>
     </section>
 

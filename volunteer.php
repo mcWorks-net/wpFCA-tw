@@ -169,15 +169,15 @@
            
         </div>
     </section>
-    
+
     <script>
-            const accordionItem = document.querySelectorAll(".accordionItem");
-            accordionItem.forEach((accordions) => {
-                accordions.addEventListener("click", ()=>{
-                    accordions.classList.toggle("active");
+        const accordionItem = document.querySelectorAll(".accordionItem");
+        accordionItem.forEach((accordions) => {
+            accordions.addEventListener("click", ()=>{
+                accordions.classList.toggle("active");
             });
         });
-     </script>
+    </script>
 
 
 <?php get_footer(); ?>

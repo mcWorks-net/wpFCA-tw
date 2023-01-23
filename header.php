@@ -30,9 +30,9 @@
                             (+63) 908-202-0749 | (+63) 926-363-9722
                         </li>
                         <li class="mx-2">
-                            <a href="#" class="btn bg-[#3b5897] hover:bg-[#1573e5] border text-white">Facebook</a>
+                            <a href="https://www.facebook.com/frontlinechristianacademy" class="btn bg-[#3b5897] hover:bg-[#1573e5] border text-white">Facebook</a>
                         </li>
-                        <li class="mx-2"><a href="faq.html" class="btn bg-white hover:bg-[#28941e] hover:text-white outline-1   text-black border-black border">FAQ</a></li>
+                        <li class="mx-2"><a href="<?php echo site_url('faq') ?>" class="btn bg-white hover:bg-[#28941e] hover:text-white outline-1   text-black border-black border">FAQ</a></li>
                     </ul>
                 </div>
                 <div class="toggle_menu lg:hidden cursor-pointer duration-500">
@@ -57,9 +57,9 @@
                         (+63) 908-202-0749 | (+63) 926-363-9722
                     </li>
                     <li class="my-3">
-                        <a href="#" class="btn w-[140px] mx-auto bg-[#3b5897] hover:bg-[#1573e5] border text-white">Facebook</a>
+                        <a href="https://www.facebook.com/frontlinechristianacademy" class="btn w-[140px] mx-auto bg-[#3b5897] hover:bg-[#1573e5] border text-white">Facebook</a>
                     </li>
-                    <li class="my-3"><a href="faq.html"  class="btn w-[140px] mx-auto bg-white hover:bg-[#28941e] hover:text-white outline-1   text-black border-black border">FAQ</a></li>
+                    <li class="my-3"><a href="<?php echo site_url('faq') ?>"  class="btn w-[140px] mx-auto bg-white hover:bg-[#28941e] hover:text-white outline-1   text-black border-black border">FAQ</a></li>
                 </ul>
             </div>
            </nav>
