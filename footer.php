@@ -1,7 +1,7 @@
 <?php wp_footer() ?>
 <footer class="footer pt-10 pb-10 bg-clrGray">
         <div class="container">
-            <div class="lg:flex justify-between border-b-2 border-b-gray-500">
+            <div class="lg:flex justify-between border-b-2 border-b-gray-500 pb-5">
                 <div class="footerLogo my-2 mx-auto lg:mx-0">
                     <figure class="w-[200px] mx-auto">
                         <?php echo the_custom_logo(); ?>
@@ -36,11 +36,35 @@
                     </ul>
                     <ul class="mx-5">
                         <li class="font-bold">Other Offers</li>
-                        <li class="my-2"><a class="text-gray-600" href="#">Tutorial Services</a></li>
-                        <li class="my-2"><a class="text-gray-600" href="#">Arts</a></li>
-                        <li class="my-2"><a class="text-gray-600" href="#">Music Lessons</a></li>
-                        <li class="my-2"><a class="text-gray-600" href="#">Sports</a></li>
-                        <li class="my-2"><a class="text-gray-600" href="#">Transportation</a></li>
+
+                            <?php 
+                            $args = array(
+                            'post_type' => 'services',
+                            'posts_per_page' => -1,
+                            );
+                            $newQuery = new WP_Query($args)
+                            ?>
+
+                            <?php if($newQuery->have_posts()) : while($newQuery->have_posts()) : $newQuery->the_post();?>
+
+                            <?php  
+                                $thePost = get_post();
+                                $sectionHook = "#" . $thePost->post_name;
+                            ?>
+               
+                            <li>
+                                <a href="<?php echo 'http://localhost/wpfca-tw/services/?'. $sectionHook ?>">
+                                    <?php the_title(); ?>
+                                </a>
+                            </li>
+                  
+                        <?php
+                            endwhile;
+                            else :
+                                echo "no available content yet";
+                            endif;
+                            wp_reset_postdata();
+                        ?>
                     </ul>
                     <ul class="mx-5">
                         <li class="font-bold">Quicklinks</li>

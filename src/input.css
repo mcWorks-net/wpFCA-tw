@@ -3,6 +3,9 @@
 @tailwind utilities;
 
 @layer base {
+  html {
+    scroll-padding-top: 25vh;
+  }
     h1,
     h2,
     h3,
@@ -151,4 +154,16 @@
 
   nav ul li.current-menu-item.current_page_item{
     @apply lg:after:bg-accentYellow lg:after:h-2 lg:after:w-full lg:after:content-[''] lg:after:absolute lg:after:-top-6  lg:after:rounded-md;
+  }
+
+  .modalInquire.active {
+    display: block;
+  }
+
+  .servicesCard img{
+    @apply mx-auto mb-5 lg:mx-0 lg:mb-0
+  }
+
+  .gallery .imageContainer {
+    @apply max-w-[42.3rem] max-h-[22rem] mx-auto overflow-hidden
   }

@@ -195,71 +195,87 @@
         <div class="container">
             <div class="gap-8 md:grid md:grid-cols-2 lg:grid-cols-3 lg:gap-5">
                 <h2 class="md:text-left text-center text-3xl text-white mb-12 lg:py-5">Other Services <br> that  we offer.</h2>
-                <div class="servicesItem">
-                    <fieldset class="border-2 text-white border-[#26a566] p-5 hover:border-white  h-[260px] cursor-pointer">
-                        <legend>
-                            <i class="fa-solid fa-book text-4xl p-4"></i>
-                        </legend>
-                        <div>
-                            <h3 class="text-lg uppercase mb-5">Tutorial Services</h3>
-                            <p>
-                                Tutorial services are available all-year round. Parents may inquire at the admin office to avail of this extra service for their kids.
-                            </p>
-                        </div>
-                    </fieldset>
-                </div>
-                <div class="servicesItem">
-                    <fieldset class="border-2 text-white border-[#26a566] p-5 hover:border-white h-[260px] cursor-pointer">
-                        <legend>
-                            <i class="fa-solid fa-pen-ruler text-4xl p-4"></i>
-                        </legend>
-                        <div>
-                            <h3 class="text-lg uppercase mb-5">Arts</h3>
-                            <p>
-                                Art classes at FCA are hands-on, where students learn sketching, painting with acrylics on canvas, and using other mediums of art.
-                            </p>
-                        </div>
-                    </fieldset>
-                </div>
-                <div class="servicesItem">
-                    <fieldset class="border-2 text-white border-[#26a566] p-5 hover:border-white h-[260px] cursor-pointer">
-                        <legend>
-                            <i class="fa-solid fa-music text-4xl p-4"></i>
-                        </legend>
-                        <div>
-                            <h3 class="text-lg uppercase mb-5">Music Lesson</h3>
-                            <p>
-                                Music class at FCA is practical and hands-on. Currently, classes offered are basic guitar, keyboard, and drums.
-                            </p>
-                        </div>
-                    </fieldset>
-                </div>
-                <div class="servicesItem">
-                    <fieldset class="border-2 text-white border-[#26a566] p-5 hover:border-white h-[260px] cursor-pointer">
-                        <legend>
-                            <i class="fa-solid fa-volleyball text-4xl p-4"></i>
-                        </legend>
-                        <div>
-                            <h3 class="text-lg uppercase mb-5">Sports</h3>
-                            <p>
-                                Tutorial services are available all-year round. Parents may inquire at the admin office to avail of this extra service.
-                            </p>
-                        </div>
-                    </fieldset>
-                </div>
-                <div class="servicesItem">
-                    <fieldset class="border-2 text-white border-[#26a566] p-5 hover:border-white h-[260px] cursor-pointer">
-                        <legend>
-                            <i class="fa-solid fa-bus text-4xl p-4"></i>
-                        </legend>
-                        <div>
-                            <h3 class="text-lg uppercase mb-5">Transportation</h3>
-                            <p>
-                                We offer transportation services for students. We have two (2) buses. You can sign up for the school service by filling out a form at the front office.                            
-                            </p>
-                        </div>
-                    </fieldset>
-                </div>
+
+                <a href="services/#tutorial-services">
+                       <div class="servicesItem">
+                        <fieldset class="border-2 text-white border-[#26a566] p-5 hover:border-white  h-[260px] cursor-pointer">
+                            <legend>
+                                <i class="fa-solid fa-book text-4xl p-4"></i>
+                            </legend>
+                            <div>
+                                <h3 class="text-lg uppercase mb-5">Tutorial Services</h3>
+                                <p>
+                                    Tutorial services are available all-year round. Parents may inquire at the admin office to avail of this extra service for their kids.
+                                </p>
+                            </div>
+                        </fieldset>
+                    </div>
+                </a>
+             
+                <a href="services/#arts">
+                    <div class="servicesItem">
+                        <fieldset class="border-2 text-white border-[#26a566] p-5 hover:border-white h-[260px] cursor-pointer">
+                            <legend>
+                                <i class="fa-solid fa-pen-ruler text-4xl p-4"></i>
+                            </legend>
+                            <div>
+                                <h3 class="text-lg uppercase mb-5">Arts</h3>
+                                <p>
+                                    Art classes at FCA are hands-on, where students learn sketching, painting with acrylics on canvas, and using other mediums of art.
+                                </p>
+                            </div>
+                        </fieldset>
+                    </div>
+                </a>
+
+                <a href="services/#music-lessons">
+                    <div class="servicesItem">
+                        <fieldset class="border-2 text-white border-[#26a566] p-5 hover:border-white h-[260px] cursor-pointer">
+                            <legend>
+                                <i class="fa-solid fa-music text-4xl p-4"></i>
+                            </legend>
+                            <div>
+                                <h3 class="text-lg uppercase mb-5">Music Lesson</h3>
+                                <p>
+                                    Music class at FCA is practical and hands-on. Currently, classes offered are basic guitar, keyboard, and drums.
+                                </p>
+                            </div>
+                        </fieldset>
+                    </div>
+                </a>
+
+                <a href="services/#sports">
+                    <div class="servicesItem">
+                        <fieldset class="border-2 text-white border-[#26a566] p-5 hover:border-white h-[260px] cursor-pointer">
+                            <legend>
+                                <i class="fa-solid fa-volleyball text-4xl p-4"></i>
+                            </legend>
+                            <div>
+                                <h3 class="text-lg uppercase mb-5">Sports</h3>
+                                <p>
+                                    Tutorial services are available all-year round. Parents may inquire at the admin office to avail of this extra service.
+                                </p>
+                            </div>
+                        </fieldset>
+                    </div>
+                </a>
+
+                <a href="services/#transportation">
+                    <div class="servicesItem">
+                        <fieldset class="border-2 text-white border-[#26a566] p-5 hover:border-white h-[260px] cursor-pointer">
+                            <legend>
+                                <i class="fa-solid fa-bus text-4xl p-4"></i>
+                            </legend>
+                            <div>
+                                <h3 class="text-lg uppercase mb-5">Transportation</h3>
+                                <p>
+                                    We offer transportation services for students. We have two (2) buses. You can sign up for the school service by filling out a form at the front office.                            
+                                </p>
+                            </div>
+                        </fieldset>
+                    </div>
+                </a>
+
             </div>
         </div>
     </div>
@@ -305,23 +321,6 @@
         </div>
     </section>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox-plus-jquery.min.js"></script>
-    <script>
-        lightbox.option({
-      'resizeDuration': 200,
-      'wrapAround': true,
-      'disableScrolling': true,
-      'fitImagesInViewport': true,
-      'positionFromTop': 100,
-        })
-    </script>
-
-    <script>
-        const whyChooseUsActive= document.querySelector('#answer-1');
-        whyChooseUsActive.classList.add('active');
-
-        const whyChooseUsActiveContent= document.querySelector('#answer-1-content');
-        whyChooseUsActiveContent.classList.add('active');
-    </script>
+ 
 
 <?php get_footer(); ?>
