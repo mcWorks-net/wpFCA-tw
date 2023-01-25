@@ -8,29 +8,24 @@ const toggle_menu= document.querySelector(".toggle_menu");
  const contentMenu = document.querySelectorAll(".contentMenu li");
  const theContent = document.querySelectorAll(".theContent");
  contentMenu.forEach((menuList) => {
-     menuList.addEventListener("click", () => {
-         removeActive();
-         menuList.classList.add("active");
-         const activeContent = document.querySelector(`#${menuList.id}-content`);
-         removeActiveContent();
-         activeContent.classList.add("active");
-     });
-});
+ menuList.addEventListener("click", () => {
+    removeActiveMenu();
+     menuList.classList.add("active");
+     const activeContent = document.querySelector(`#${menuList.id}-content`);
+     removeContentActive();
+     activeContent.classList.add("active");
+         });
+ });
 
 
-function removeActive() {
+ function removeActiveMenu() {
  contentMenu.forEach((menu) => {
      menu.classList.remove("active");
  });
  }
 
- function removeActiveContent() {
+ function removeContentActive() {
      theContent.forEach((content) => {
      content.classList.remove("active");
  });
  }
-
- const contentMenuActive = document.querySelector("#menu-1");
- contentMenuActive.classList.add("active");
- const contentActive = document.querySelector("#menu-1-content");
- contentActive.classList.add("active");

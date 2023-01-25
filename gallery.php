@@ -30,8 +30,8 @@
 
 
                     <?php foreach($images as $image):?>
-                    <a data-lightbox="<?php echo the_sub_field('photo_album_name') ?>" href="<?php echo esc_url($image['sizes']['large']); ?>">
-                    <img class="mx-auto w-[423px] h-[362px] object-cover" src="<?php echo esc_url($image['sizes']['large']); ?>"
+                    <a class="group" data-lightbox="<?php echo the_sub_field('photo_album_name') ?>" href="<?php echo esc_url($image['sizes']['large']); ?>">
+                    <img class="mx-auto w-full h-[362px] object-cover group-hover:scale-110 transition-all group-hover:duration-75" src="<?php echo esc_url($image['sizes']['large']); ?>"
                             alt="<?php echo the_sub_field('photo_album_name'); ?>-<?php echo $image['name'] ?>" 
                             
                         >

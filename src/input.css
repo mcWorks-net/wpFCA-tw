@@ -148,6 +148,15 @@
     margin-bottom: 2rem;
   }
 
+  .accordionItem i {
+    transform: rotate(90deg);
+    transition: 0.3s ease;
+  }
+  .accordionItem.active i {
+    transform: rotate(-90deg);
+    transition: 0.3s ease;
+  }
+
   .testimonialPhoto img{
     @apply rounded-full
   }

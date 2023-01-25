@@ -40,7 +40,7 @@
                             
                                     <?php echo the_sub_field('accordion_text_content'); ?>
                          
-                            <i class="fa-solid fa-chevron-right absolute right-5 top-5 text-xl"></i>
+                            <i class="fa-solid fa-chevron-right absolute right-5 top-3 text-xl"></i>
                         </div>
 
                             <?php endwhile; ?>
@@ -62,6 +62,16 @@
                 accordions.classList.toggle("active");
             });
         });
+
+    </script>
+
+    <script>
+        
+        const contentMenuActive = document.querySelector("#menu-1");
+        contentMenuActive.classList.add("active");
+        const contentActive = document.querySelector("#menu-1-content");
+        contentActive.classList.add("active");
+        
     </script>
 
 <?php get_footer(); ?>

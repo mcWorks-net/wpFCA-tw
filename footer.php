@@ -80,8 +80,8 @@
                 <div class="text-center lg:flex lg:justify-between lg:items-center">
                     <ul class="flex justify-center order-2">
                         <li class="mx-3"><small>Follow us:</small></li>
-                        <li class="mx-3"><i class="fa-brands fa-facebook text-3xl text-gray-500"></i></li>
-                        <li class="mx-3"><i class="fa-brands fa-instagram text-3xl text-gray-500"></i></li>
+                        <li class="mx-3"><a href="https://www.facebook.com/frontlinechristianacademy"><i class="fa-brands fa-facebook text-3xl text-gray-500"></i></a></li>
+                        <!-- <li class="mx-3"><i class="fa-brands fa-instagram text-3xl text-gray-500"></i></li> -->
                     </ul>
                     <p class="order-1"><small>&#169; Frontline Christain Academy 2023</small></p>
                 </div>
@@ -89,12 +89,7 @@
         </div>
     </footer>
     <script>
-        const toggle_menu= document.querySelector(".toggle_menu");
-        const nav= document.querySelector("nav");
-        toggle_menu.addEventListener("click", ()=>{
-            nav.classList.toggle('active');
-            toggle_menu.classList.toggle('active');
-        })
+
 
         const whyChooseUs_answer = document.querySelectorAll(".answer");
         const whyUsContent = document.querySelectorAll(".whyUsContent");
